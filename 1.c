@@ -1,5 +1,17 @@
 #include <stdio.h>
 
+
+int sum_numbers(int num) {
+    int sum = 0;
+    while (num > 0) {
+        int last_digit = num % 10;
+        sum += last_digit;
+        num /= 10;
+    }
+    return sum;
+}
+
+
 int main() {
     int array[] = {7, 13, 17, 19};
     int counter, num_counter, sum;
@@ -12,7 +24,7 @@ int main() {
         }
         if (counter == 2) {
             num_counter++;
-            sum += num;
+            sum += sum_numbers(num);
         }
     }
     printf("%d %d\n", num_counter, sum);
