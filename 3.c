@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
 #define N 10
 
@@ -16,15 +17,20 @@ int main() {
         }
     }
     printf("\n");
-    int min = 0;
+    int min = INT_MAX;
     int counter = 0;
-    for (int i = 0; i < N - 1; i++) {
-        if (2 * (array[i] + array[i + 1]) > max) {
-            counter++;
-            if ((array[i] + array[i + 1]) > min) {
-                min = array[i] + array[i + 1];
+    for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (2 * (array[i] + array[j]) > max) {
+                    counter++;
+                    if (array[i] + array[j] < min) {
+                        min = array[i] + array[j];
+                    }
+                }
             }
-        }
     }
     printf("%d %d\n", counter, min);
     free(array);
