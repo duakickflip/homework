@@ -6,6 +6,7 @@
 #define M 6
 
 int** generate_array(int min, int max) {
+    srand(time(NULL));
     int** array = (int**)malloc(N * sizeof(int*));
     for (int i = 0; i < N; i++) {
         array[i] = (int*)malloc(M * sizeof(int));
