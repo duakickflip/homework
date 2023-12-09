@@ -13,6 +13,7 @@ int sum_line(int* array) {
 }
 
 int main() {
+    srand(time(NULL));
     int** array = (int**)malloc(N * sizeof(int*));
     for (int i = 0; i < N; i++) {
         array[i] = (int*)malloc(N * sizeof(int));
